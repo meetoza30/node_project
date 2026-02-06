@@ -10,7 +10,7 @@ services:
    dockerfile: Dockerfile
 
   environment:
-   - DB_URL=mongodb://mongo-service:27017/
+   - DB_URL=mongodb://mongo:27017/
   ports:
    - 3000:3000
   depends_on:
