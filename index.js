@@ -31,8 +31,9 @@ app.get('/', async (req, res) => {
     try {
         console.log(string)
         res.json({
+            msg: "hello world",
             db_key: string,
-            msg : "hello world"
+            
         })
     } catch (err) {
         console.log(err);
