@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-project
+  labels:
+    app: node-project
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: node-project
+  template:
+    metadata:
+      labels:
+        app: node-project
+    spec:
+      containers:
+      - name: node-project-deploy
+        image: meetoza30/node-project:v10
+        ports:
+        - containerPort: 3000
+        env:
+        - name: DB_URL
+          valueFrom:
+            configMapKeyRef:
+              name: node-cm
+              key: DB_URL
